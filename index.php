@@ -1,7 +1,16 @@
 <?php
 
 $connection  = mysqli_connect("localhost", "admin", "adminoke", "tokobuah");
-$select = mysqli_query($connection, "SELECT * FROM buah");
+
+if($warna = $_GET['warna']){
+    $select = mysqli_query($connection, "SELECT * FROM buah WHERE warna = '$warna'");
+}
+else{
+    $select = mysqli_query($connection, "SELECT * FROM buah");
+}
+
+
+
 
 ?>
 
@@ -13,6 +22,19 @@ $select = mysqli_query($connection, "SELECT * FROM buah");
     <title>Document</title>
 </head>
 <body>
+
+    <form action="" method="GET">
+        <select name="warna">
+            <option value="">Pilih warna</option>
+            <option value="merah">Merah</option>
+            <option value="kuning">Kuning</option>
+            <option value="hijau">Hijau</option>
+        </select>
+
+        <button>cari</button>
+    </form>
+
+    <br />
 
     <table border="1" style="border-collapse: collapse" cellpadding="5px">
         <thead>
