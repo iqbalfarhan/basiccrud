@@ -30,7 +30,9 @@ $select = mysqli_query($connection, "SELECT * FROM buah");
                     <td><?php echo $row['warna'] ?></td>
                     <td><?php echo $row['rasa'] ?></td>
                     <td>
-                        <button>Edit</button>
+                        <a href="edit.php?id=<?php echo $row['id'] ?>">
+                            <button>Edit</button>
+                        </a>
                         <a href="delete.php?id=<?php echo $row['id'] ?>">
                             <button>Delete</button>
                         </a>
